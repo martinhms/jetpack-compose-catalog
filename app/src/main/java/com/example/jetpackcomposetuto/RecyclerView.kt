@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
@@ -25,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetpackcomposetuto.model.SuperHero
+import kotlin.math.ceil
 
 @Composable
 fun RecyclerView() {
@@ -55,7 +59,6 @@ fun SuperHeroRecyclerView() {
                 }
             }
         }
-
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier.weight(1f)
@@ -70,11 +73,24 @@ fun SuperHeroRecyclerView() {
 }
 
 @Composable
+fun SuperHerGridView() {
+    val context = LocalContext.current
+        LazyVerticalGrid(columns = GridCells.Fixed(2), content =  {
+            items(getSuperHeros()) { superhero ->
+                ItemHero(superhero = superhero) {
+                    Toast.makeText(context, superhero.superheroName, Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+}
+
+@Composable
 fun ItemHero(superhero: SuperHero, onItemSelected: (SuperHero) -> Unit) {
     Card(
         border = BorderStroke(5.dp, Color.Red),
         modifier = Modifier
             .width(200.dp)
+            .padding(4.dp)
             .fillMaxWidth()
             .clickable { onItemSelected(superhero) }) {
         Column() {

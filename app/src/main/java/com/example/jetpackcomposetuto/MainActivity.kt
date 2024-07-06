@@ -68,16 +68,23 @@ class MainActivity : ComponentActivity() {
                                 onDismiss = { show = false },
                                 onConfirm = { Log.i("martin", "click") })
 
-                            MySimpleCustomDialog(showMySimpleCustomDialog, onDismiss = { showMySimpleCustomDialog = false })
-                            MyCustomDialog(showMyCustomDialog, onDismiss = { showMyCustomDialog = false })
-                            MyConfirmationDialog(showMyConfirmationDialog, onDismiss = { showMyConfirmationDialog = false })
+                            MySimpleCustomDialog(
+                                showMySimpleCustomDialog,
+                                onDismiss = { showMySimpleCustomDialog = false })
+                            MyCustomDialog(
+                                showMyCustomDialog,
+                                onDismiss = { showMyCustomDialog = false })
+                            MyConfirmationDialog(
+                                showMyConfirmationDialog,
+                                onDismiss = { showMyConfirmationDialog = false })
                         }
-                     //   RecyclerView()
-                        SuperHeroRecyclerView()
                         //MyRadioButtonList(selected) { selected = it }
                         //  MyCard()
                         //MyBadgeBox()
                         //MyDropDownMenu()
+                        //RecyclerView()
+                        // SuperHeroRecyclerView()
+                        SuperHerGridView()
                     }
                 }
             }
