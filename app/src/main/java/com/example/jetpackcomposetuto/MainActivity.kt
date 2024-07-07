@@ -35,6 +35,9 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    /*
+             ***UNCOMMENT THE COMPOSABLE FUNCTION TO RENDER IN APP ***
+                                      * */
                     //DropDownMenu()
                     //Card()
                     //BasicSlider()
@@ -46,9 +49,11 @@ class MainActivity : ComponentActivity() {
                     //MyDropDownMenu()
                     //ShowDialogs()
                     //RecyclerView()
-                    //SuperHeroRecyclerView()
-                    //SuperHerGridView()
+                    //SuperHeroRecyclerViewColumn()
                     //SuperHeroRecyclerViewRow()
+                    //SuperHeroCombineRecyclerView()
+                    //SuperHeroRecyclerSpecialControlsView()
+                    //SuperHerGridView()
                     SuperHeroRecyclerViewSticky()
                 }
             }
