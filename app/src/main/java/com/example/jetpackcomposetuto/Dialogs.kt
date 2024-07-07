@@ -1,8 +1,10 @@
 package com.example.jetpackcomposetuto
 
+import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -49,7 +52,7 @@ fun MyConfirmationDialog(
                 var status by remember { mutableStateOf("") }
                 MyRadioButtonList(name = status) { status = it }
                 Divider(Modifier.fillMaxWidth(), color = Color.LightGray)
-                Row (Modifier.align(Alignment.End)){
+                Row(Modifier.align(Alignment.End)) {
                     TextButton(onClick = { /*TODO*/ }) {
                         Text(text = "CANCEL")
                     }
@@ -163,5 +166,45 @@ fun MyDialog(
                 }
             })
     }
-
 }
+
+@Composable
+fun ShowDialogs() {
+    var show by remember {
+        mutableStateOf(false)
+    }
+    var showMySimpleCustomDialog by remember {
+        mutableStateOf(false)
+    }
+    var showMyCustomDialog by remember {
+        mutableStateOf(false)
+    }
+    var showMyConfirmationDialog by remember {
+        mutableStateOf(false)
+    }
+    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+        Button(onClick = {
+            show = true
+            showMySimpleCustomDialog = true
+            showMyCustomDialog = true
+            showMyConfirmationDialog = true
+        }) {
+            Text(text = "Mostrar dialogs")
+        }
+        MyDialog(
+            show = show,
+            onDismiss = { show = false },
+            onConfirm = { Log.i("martin", "click") })
+
+        MySimpleCustomDialog(
+            showMySimpleCustomDialog,
+            onDismiss = { showMySimpleCustomDialog = false })
+        MyCustomDialog(
+            showMyCustomDialog,
+            onDismiss = { showMyCustomDialog = false })
+        MyConfirmationDialog(
+            showMyConfirmationDialog,
+            onDismiss = { showMyConfirmationDialog = false })
+    }
+}
+
