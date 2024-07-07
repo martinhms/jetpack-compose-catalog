@@ -35,50 +35,21 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    var show by remember {
-                        mutableStateOf(false)
-                    }
-                    var showMySimpleCustomDialog by remember {
-                        mutableStateOf(false)
-                    }
-                    var showMyCustomDialog by remember {
-                        mutableStateOf(false)
-                    }
-                    var showMyConfirmationDialog by remember {
-                        mutableStateOf(false)
-                    }
-                    Column(Modifier.padding(30.dp)) {
-                        DropDownMenu()
-                        Card()
-                        BasicSlider()
-                        AdvanceSlider()
-                        MyRangeSlider()
-
-                        Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                            Button(onClick = {
-                                show = true
-                                showMySimpleCustomDialog = true
-                                showMyCustomDialog = true
-                                showMyConfirmationDialog = true
-                            }) {
-                                Text(text = "Mostrar dialogs")
-                            }
-                            MyDialog(
-                                show = show,
-                                onDismiss = { show = false },
-                                onConfirm = { Log.i("martin", "click") })
-
-                            MySimpleCustomDialog(showMySimpleCustomDialog, onDismiss = { showMySimpleCustomDialog = false })
-                            MyCustomDialog(showMyCustomDialog, onDismiss = { showMyCustomDialog = false })
-                            MyConfirmationDialog(showMyConfirmationDialog, onDismiss = { showMyConfirmationDialog = false })
-                        }
-                     //   RecyclerView()
-                        SuperHeroRecyclerView()
-                        //MyRadioButtonList(selected) { selected = it }
-                        //  MyCard()
-                        //MyBadgeBox()
-                        //MyDropDownMenu()
-                    }
+                    //DropDownMenu()
+                    //Card()
+                    //BasicSlider()
+                    //AdvanceSlider()
+                    //MyRangeSlider()
+                    //MyRadioButtonList(selected) { selected = it }
+                    //MyCard()
+                    //MyBadgeBox()
+                    //MyDropDownMenu()
+                    //ShowDialogs()
+                    //RecyclerView()
+                    //SuperHeroRecyclerView()
+                    //SuperHerGridView()
+                    //SuperHeroRecyclerViewRow()
+                    SuperHeroRecyclerViewSticky()
                 }
             }
 
@@ -102,10 +73,10 @@ fun MyText(name: String, onValueChange: (String) -> Unit) {
 @Composable
 fun GreetingPreview() {
     Column {
-        DropDownMenu()
+/*        DropDownMenu()
         Card()
         BasicSlider()
-        AdvanceSlider()
+        AdvanceSlider()*/
         MyRangeSlider()
     }
 
