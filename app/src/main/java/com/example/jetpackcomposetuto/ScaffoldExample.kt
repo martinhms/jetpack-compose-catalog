@@ -21,14 +21,18 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.selects.select
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScaffoldExample() {
     val snackbarHostState = remember { SnackbarHostState() }
@@ -44,7 +48,7 @@ fun ScaffoldExample() {
             }
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
-        bottomBar = { MybuttonNavigation()}
+        bottomBar = { MybuttonNavigation() }
 
     )
 }
@@ -100,17 +104,20 @@ fun MyTopAppBar(snackbarHostState: SnackbarHostState, scope: CoroutineScope) {
 
 @Composable
 fun MybuttonNavigation() {
-    BottomNavigation {
-        BottomNavigationItem(selected = false, onClick = { /*TODO*/ }, icon = {
+    var index by remember {
+        mutableStateOf(0)
+    }
+    BottomNavigation(backgroundColor = Color.DarkGray, contentColor = Color.White) {
+        BottomNavigationItem(selected = index == 0, onClick = { index = 0 }, icon = {
             Icon(imageVector = Icons.Default.Home, contentDescription = "home")
         }, label = { Text(text = "Home") })
 
 
-        BottomNavigationItem(selected = false, onClick = { /*TODO*/ }, icon = {
+        BottomNavigationItem(selected = index == 1, onClick = { index = 1 }, icon = {
             Icon(imageVector = Icons.Default.Favorite, contentDescription = "Favorite")
         }, label = { Text(text = "Favorite") })
 
-        BottomNavigationItem(selected = false, onClick = { /*TODO*/ }, icon = {
+        BottomNavigationItem(selected = index == 2, onClick = { index = 2 }, icon = {
             Icon(imageVector = Icons.Default.AccountBox, contentDescription = "Person")
         }, label = { Text(text = "Person") })
     }
