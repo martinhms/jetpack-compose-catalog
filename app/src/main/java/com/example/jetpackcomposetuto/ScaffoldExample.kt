@@ -4,10 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
@@ -58,7 +56,10 @@ fun ScaffoldExample() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyTopAppBar(snackbarHostState: SnackbarHostState, scope: CoroutineScope) {
+fun MyTopAppBar(
+    snackbarHostState: SnackbarHostState,
+    scope: CoroutineScope,
+) {
     TopAppBar(
         title = { Text(text = "Tool Bar") },
         colors = TopAppBarColors(
@@ -69,13 +70,13 @@ fun MyTopAppBar(snackbarHostState: SnackbarHostState, scope: CoroutineScope) {
             titleContentColor = Color.White,
         ),
         navigationIcon = {
-            IconButton(onClick = {
-                scope.launch {
-                    snackbarHostState.showSnackbar(message = "Back")
+                IconButton(onClick = {
+                    scope.launch {
+                        snackbarHostState.showSnackbar(message = "Back")
+                    }
+                }) {
+                    Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Back")
                 }
-            }) {
-                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Back")
-            }
         },
         actions = {
             IconButton(onClick = {
@@ -122,14 +123,5 @@ fun MybuttonNavigation() {
         BottomNavigationItem(selected = index == 2, onClick = { index = 2 }, icon = {
             Icon(imageVector = Icons.Default.AccountBox, contentDescription = "Person")
         }, label = { Text(text = "Person") })
-    }
-}
-
-
-@Composable
-fun MyFavButton(){
-    FloatingActionButton(onClick = { /*TODO*/ }, backgroundColor = Color.Black, contentColor = Color.White) {
-        Icon(imageVector = Icons.Default.Add, contentDescription ="Add" )
-        
     }
 }
