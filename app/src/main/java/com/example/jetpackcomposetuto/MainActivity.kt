@@ -17,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.jetpackcomposetuto.navigation.NavigationSetup
 import com.example.jetpackcomposetuto.ui.theme.JetpackComposeTutoTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,9 +49,9 @@ class MainActivity : ComponentActivity() {
                     //SuperHeroRecyclerSpecialControlsView()
                     //SuperHerGridView()
                     //SuperHeroRecyclerViewSticky()
-                    ScaffoldExample()
+                    //ScaffoldExample()
                     //DrawerMenu()
-
+                    NavigationSetup()
                 }
             }
 
@@ -58,6 +59,7 @@ class MainActivity : ComponentActivity() {
         //var myText by remember { mutableStateOf("Martin") }
         //MyRadioButtonList()
         // MyText(myText) { myText = it }
+
     }
 }
 
