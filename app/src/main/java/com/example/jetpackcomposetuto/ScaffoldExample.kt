@@ -4,14 +4,17 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -28,10 +31,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.selects.select
 
 @Composable
 fun ScaffoldExample() {
@@ -48,8 +49,9 @@ fun ScaffoldExample() {
             }
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
-        bottomBar = { MybuttonNavigation() }
-
+        bottomBar = { MybuttonNavigation() },
+        floatingActionButton = { MyFavButton() },
+        floatingActionButtonPosition = FabPosition.End,
     )
 }
 
@@ -120,5 +122,14 @@ fun MybuttonNavigation() {
         BottomNavigationItem(selected = index == 2, onClick = { index = 2 }, icon = {
             Icon(imageVector = Icons.Default.AccountBox, contentDescription = "Person")
         }, label = { Text(text = "Person") })
+    }
+}
+
+
+@Composable
+fun MyFavButton(){
+    FloatingActionButton(onClick = { /*TODO*/ }, backgroundColor = Color.Black, contentColor = Color.White) {
+        Icon(imageVector = Icons.Default.Add, contentDescription ="Add" )
+        
     }
 }
