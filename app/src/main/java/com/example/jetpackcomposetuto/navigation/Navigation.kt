@@ -1,7 +1,6 @@
 package com.example.jetpackcomposetuto.navigation
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -21,7 +20,7 @@ fun Screen1(navigationController: NavHostController) {
             .background(Color.Cyan))
     {
         Button(onClick = {
-            navigationController.navigate(Routes.Pantalla2.route)
+            navigationController.navigate(Routes.Screen2.route)
         }, modifier = Modifier.align(Alignment.Center)) {
             Text(text = "Navigate to 2")
         }    }
@@ -35,7 +34,7 @@ fun Screen2(navigationController: NavHostController) {
             .background(Color.Gray))
     {
         Button(onClick = {
-            navigationController.navigate(Routes.Pantalla3.route)
+            navigationController.navigate(Routes.Screen3.route)
         }, modifier = Modifier.align(Alignment.Center)) {
             Text(text = "Navigate to 3")
         }
@@ -50,7 +49,7 @@ fun Screen3(navigationController: NavHostController) {
             .background(Color.Red))
     {
         Button(onClick = {
-            navigationController.navigate(Routes.Pantalla4.createRoute(32))
+            navigationController.navigate(Routes.Screen4.createRoute(32))
         }, modifier = Modifier.align(Alignment.Center)) {
             Text(text = "Navigate to 4")
         }    }
@@ -64,7 +63,7 @@ fun Screen4(navigationController: NavHostController, age: Int) {
             .background(Color.Red))
     {
         Button(onClick = {
-            navigationController.navigate(Routes.Pantalla5.createRoute("Martin"))
+            navigationController.navigate(Routes.Screen5.createRoute("Martin"))
            // navigationController.navigate(Routes.Pantalla5.route) if empty defaoult value
         }, modifier = Modifier.align(Alignment.Center)) {
             Text(text = "I am $age years old")
@@ -80,7 +79,7 @@ fun Screen5(navigationController: NavHostController, name: String?) {
             .background(Color.Blue))
     {
         Button(onClick = {
-            navigationController.navigate(Routes.Pantalla1.route)
+            navigationController.navigate(Routes.Screen1.route)
         }, modifier = Modifier.align(Alignment.Center)) {
             Text(text = "My name is $name ")
         }    }
