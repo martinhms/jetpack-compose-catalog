@@ -54,7 +54,8 @@ class MainActivity : ComponentActivity() {
                     //SuperHeroCombineRecyclerView()
                     //SuperHeroRecyclerSpecialControlsView()
                     //SuperHerGridView()
-                    SuperHeroRecyclerViewSticky()
+                    //SuperHeroRecyclerViewSticky()
+                    ScaffoldExample()
                 }
             }
 
