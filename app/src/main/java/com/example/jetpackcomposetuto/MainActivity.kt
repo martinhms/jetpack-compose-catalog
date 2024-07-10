@@ -51,7 +51,8 @@ class MainActivity : ComponentActivity() {
                     //SuperHeroRecyclerViewSticky()
                     //ScaffoldExample()
                     //DrawerMenu()
-                    NavigationSetup()
+                    //NavigationSetup()
+                    ShowAnimationsCatalog()
                 }
             }
 
